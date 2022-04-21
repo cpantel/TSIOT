@@ -57,6 +57,13 @@ Puede ser útil o necesario instalar las guest additions en el caso de usar Virt
       # paciencia...
       sudo reboot
  
+#### Espacio libre
+
+Por algún motivo que ignoro, la instalación no usa todo el espacio disponible, se corrige con:
+
+      $ sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+      $ sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+
 
 ## Instalaciones y configuraciones adicionales
 
@@ -332,15 +339,15 @@ es porque pusiste *node test* en lugar de *npm test*
       docker-compose -f docker-compose-api.yml -p repo up
 
 
-
-## Probar lo hecho
-
 - En otra terminal
  
       cd SMAUEC
       pushd api_events; npm install; popd
       pushd api_rules;  npm install; popd
       pushd api_users;  npm install
+
+## Probar lo hecho
+
       npm test
 
 Esperamos que la mayor parte de los tests si no todos, pasen.
