@@ -115,7 +115,7 @@ Las instrucciones para la instalación de node fueron tomadas de
 - Generar e instalar certificados
 
   - Generar CA
- 
+
       cd TSIOT
       chmod 0700 sslcert
       cd sslcert
